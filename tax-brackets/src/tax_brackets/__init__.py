@@ -126,12 +126,23 @@ def main() -> None:
     fig.colorbar(sm, ax=ax, label="Year")
 
     plt.title(
-        "Marginal Tax Rates",
+        "Historical Marginal Tax Rates at Various Income Levels",
         fontsize=16,
         fontweight="bold",
     )
     plt.xlabel("Taxable Income ($), 2025 dollars", fontsize=12)
-    plt.ylabel("Tax Rate (%)", fontsize=12)
+    plt.ylabel("Marginal Tax Rate (%)", fontsize=12)
+
+    fig.text(
+        0.99,
+        0.01,
+        "Source: Visualization by David Ciani with historical income\ntax data from the Tax Foundation and the Consumer Price Index for\nAll Urban Consumers (CPI-U) from the Buearu of Labor Statistics",
+        horizontalalignment="right",
+        verticalalignment="bottom",
+        fontsize=8,
+        style="italic",
+        color="gray",
+    )
 
     # Add commas to the X-axis numbers
     plt.gca().xaxis.set_major_formatter(
@@ -139,7 +150,7 @@ def main() -> None:
     )
 
     plt.grid(True, linestyle=":", alpha=0.7)
-    plt.tight_layout()
+    fig.tight_layout(rect=(0, 0.05, 1, 1))
 
     plt.show()
 
